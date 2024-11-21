@@ -1,4 +1,4 @@
-class SolutionTemplate:
+class Template:
     def __init__(self, problem_number: int, team_name: str, team_number: int) -> None:
         """
         Initialize the SolutionTemplate with problem and team numbers.
@@ -25,16 +25,25 @@ class SolutionTemplate:
             print(f"Unable to create output file for problem {self.problem_number}, team {self.team_name}{self.team_number}.")
             self.outfile = None
 
-    def writetooutput(self, output: str) -> None:
+    def write_to_output(self, output: str) -> None:
         """
         Write the given output string to the output file.
         
         :param output: The string to write to the output file.
         """
-        if self.outfile:
+        try:
             self.outfile.write(output)
-        else:
+        except OSError:
             print("Output file is not available.")
+
+    def read_input_file(self) -> list:
+        """
+        Read and print the content of the input file.
+        """
+        try:
+            return self.infile.read().split("\n")
+        except OSError:
+            print("Input file is not available.")
 
     def finished(self) -> None:
         """
