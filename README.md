@@ -3,7 +3,7 @@ Solution helper so you can stick to being DRY
 
 ## Build
 
-```
+```shell
 $ git clone https://github.com/martincarapia/TechFestSolutionHelper.git
 $ cd TechFestSolutionHelper
 $ pip install -r requirements.txt
